@@ -44,4 +44,17 @@ body {
   background-color: #2B2F3C;
   max-width: 1281px;
   margin: 0 auto;
+  min-width: 320px;
+}
+
+@media (max-width:1280px) {
+  body {
+    max-width: 769px;
+  }
+}
+
+@media (max-width:768px) {
+  body {
+    max-width: 320px;
+  }
 }
