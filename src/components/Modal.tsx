@@ -22,7 +22,7 @@ const Modal = (props: IModalProps) => {
         alert('Успешная авторизация!')
         props.closeModal()
       } else {
-        alert('Неправильный логин пользователя или пароль!')
+        alert('Неправильный логин или пароль!')
       }
     }
   }

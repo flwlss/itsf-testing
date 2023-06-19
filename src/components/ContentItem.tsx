@@ -5,6 +5,7 @@ import CustomButton from "./CustomButton";
 interface IContentItemProps {
   email: string;
   body: string;
+  imgSrc: string;
 }
 
 const ContentItem = (props: IContentItemProps) => {
@@ -18,7 +19,7 @@ const ContentItem = (props: IContentItemProps) => {
       onMouseEnter={() => { setShowCard(true) }}
       onMouseLeave={() => { setShowCard(false) }}
       className={styles.item}>
-      <img className={styles.itemImg} src="img/waterfall.jpg" alt="" />
+      <img className={styles.itemImg} src={props.imgSrc} alt="" />
       <div className={showCard ? styles.itemInfo : `${styles.itemInfo} ${styles.itemInfoActive}`}>
         <div className={styles.itemInfoWrapper}>
           <div className={styles.itemInfoEmailRating}>

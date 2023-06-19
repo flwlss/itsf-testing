@@ -4,59 +4,62 @@ import CustomButton from './CustomButton'
 import ContentItem from './ContentItem'
 import Loader from './Loader';
 
-interface Card {
-  body: string;
-  email: string;
-  id: number;
-  name: string;
-  postId: string
-}
-
 const Content = () => {
 
-  const [state, setState] = useState([])
+  const [comments, setComments] = useState<Comments[]>([])
+  const [photos, setPhotos] = useState<Photos[]>([])
   const [availableCards, setAvailableCards] = useState(3)
-  const [loader, setLoader] = useState(false)
+  const [commentsPreloader, setCommentsPreloader] = useState(true)
+  const [photosPreloader, setPhotosPreloader] = useState(true)
 
   useEffect(() => {
     (async () => {
-      let response = await fetch('https://jsonplaceholder.typicode.com/comments');
-      if (response.ok) {
-        let json = await response.json();
+      let responseComments = await fetch('https://jsonplaceholder.typicode.com/comments');
+      if (responseComments.ok) {
+        let json = await responseComments.json();
         console.log(json);
-        setState(json)
+        setComments(json)
+        setCommentsPreloader(false)
       } else {
-        alert("Ошибка HTTP: " + response.status);
+        alert("Ошибка HTTP: " + responseComments.status);
       }
     })()
   }, [])
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoader(false)
-    }, 200);
-    return () => clearTimeout(timer)
-  }, [loader])
+    (async () => {
+      let responsePhotos = await fetch('https://jsonplaceholder.typicode.com/photos');
+      if (responsePhotos.ok) {
+        let json = await responsePhotos.json();
+        console.log(json);
+        setPhotos(json)
+        setPhotosPreloader(false)
+      } else {
+        alert("Ошибка HTTP: " + responsePhotos.status);
+      }
+    })()
+  }, [])
 
   return (
     <div className={styles.container}>
-      {loader && <Loader />}
-      <div className={styles.itemsWrapper}>
-        {state.map((item: Card) => {
-          return (
-            <ContentItem
-              key={item.id}
-              body={item.body}
-              email={item.email} />
-          )
-        }).splice(0, availableCards)}
-      </div>
+      {(commentsPreloader && photosPreloader) && <Loader />}
+      {(!commentsPreloader && !photosPreloader) &&
+        <div className={styles.itemsWrapper}>
+          {comments.map((item) => {
+            return (
+              <ContentItem
+                imgSrc={photos[item.id - 1]?.url}
+                key={item.id}
+                body={item.body}
+                email={item.email} />
+            )
+          }).splice(0, availableCards)}
+        </div>}
       <div className={styles.moreButton}>
         <CustomButton
           title='More'
           onClick={() => {
             setAvailableCards(availableCards + 3)
-            setLoader(true)
           }} />
       </div>
     </div>
