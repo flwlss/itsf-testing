@@ -11,6 +11,7 @@ const ContentItem = (props: IContentItemProps) => {
 
   const randomRating = Math.floor(Math.random() * (Math.max(6) - Math.min(1)) + Math.min(1))
   const [showCard, setShowCard] = useState(false)
+  const [ratingValue, setRatingValue] = useState(randomRating)
 
   return (
     <article
@@ -23,7 +24,7 @@ const ContentItem = (props: IContentItemProps) => {
           <div className={styles.itemInfoEmailRating}>
             <p>{props.email}</p>
             <div className={styles.itemInfoRating}>
-              <p>{randomRating}</p>
+              <p>{ratingValue}</p>
               <img src="/img/star.svg" alt="" />
             </div>
           </div>

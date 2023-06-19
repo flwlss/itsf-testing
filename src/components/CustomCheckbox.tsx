@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../assets/styles/Modal.module.css';
+import styles from '../assets/styles/CustomCheckbox.module.css';
 
 interface ICustomCheckbox {
-  onClick: () => void;
+  onChange: () => void;
   checked: boolean;
 }
 
@@ -11,8 +11,8 @@ const CustomCheckbox = (props: ICustomCheckbox) => {
     <div className={styles.checkboxWrapper}>
       <label className={styles.checkbox}>
         <input
-          onClick={props.onClick}
           checked={props.checked}
+          onChange={props.onChange}
           type="checkbox" />
         <span className={styles.checkmark} />
       </label>

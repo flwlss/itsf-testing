@@ -3,6 +3,7 @@ import styles from '../assets/styles/Modal.module.css';
 import CustomButton from "./CustomButton";
 import CustomInput from "./CustomInput";
 import CustomCheckbox from "./CustomCheckbox";
+import { users } from "../constants/constants";
 
 interface IModalProps {
   closeModal: () => void
@@ -13,12 +14,6 @@ const Modal = (props: IModalProps) => {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
   const [checked, setChecked] = useState(false)
-
-  const users = [
-    { login: "user1", password: "password1" },
-    { login: "user2", password: "password2" },
-    { login: "user3", password: "password3" },
-  ];
 
   const checkUser = (login: string, password: string) => {
     const user = users.find(user => user.login === login && user.password === password)
@@ -42,7 +37,7 @@ const Modal = (props: IModalProps) => {
           onClick={props.closeModal}
           className={styles.modalClose} />
         <h1>Authorization</h1>
-        <div style={{ marginBottom: 25 }}>
+        <div className={styles.firstInput}>
           <CustomInput
             label="Login"
             onChange={(e) => { setLogin(e.target.value) }}
@@ -57,7 +52,7 @@ const Modal = (props: IModalProps) => {
           value={password}
         />
         <CustomCheckbox
-          onClick={() => setChecked(!checked)}
+          onChange={() => setChecked(!checked)}
           checked={checked} />
         <CustomButton
           onClick={() => { checkUser(login, password) }}

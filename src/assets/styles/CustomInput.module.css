@@ -1,0 +1,58 @@
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding-left: 21px;
+  outline: none;
+  color: #434343;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+}
+
+.input:focus+span,
+.input:valid+span {
+  top: 0px;
+  font-size: 11px;
+}
+
+label {
+  position: relative;
+  display: block;
+  width: 385px;
+  height: 50px;
+  border: 2px solid #7469F3;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+span {
+  color: #BABABA;
+  position: absolute;
+  top: 10px;
+  left: 21px;
+  font-weight: 400;
+  font-size: 18px;
+  transition: 0.3s;
+  cursor: text;
+}
+
+@media (max-width:768px) {
+  .input {
+    padding-left: 15px;
+    font-size: 15px;
+  }
+
+  label {
+    width: 250px;
+    height: 40px;
+  }
+
+  span {
+    top: 8px;
+    left: 15px;
+    font-size: 15px;
+  }
+}
