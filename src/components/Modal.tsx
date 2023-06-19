@@ -17,11 +17,13 @@ const Modal = (props: IModalProps) => {
 
   const checkUser = (login: string, password: string) => {
     const user = users.find(user => user.login === login && user.password === password)
-    if (user) {
-      alert('Успешная авторизация!')
-      props.closeModal()
-    } else {
-      alert('Неправильный логин пользователя или пароль!')
+    if (password && login) {
+      if (user) {
+        alert('Успешная авторизация!')
+        props.closeModal()
+      } else {
+        alert('Неправильный логин пользователя или пароль!')
+      }
     }
   }
 
