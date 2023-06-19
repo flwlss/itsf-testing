@@ -10,9 +10,11 @@ const Header = () => {
   return (
     <header className={styles.header}>
       {showModal && <Modal closeModal={() => { setShowModal(false) }} />}
-      <CustomButton
-        title="Sign In"
-        onClick={() => { setShowModal(true) }} />
+      <div className={styles.button}>
+        <CustomButton
+          title="Sign In"
+          onClick={() => { setShowModal(true) }} />
+      </div>
     </header>
   )
 }

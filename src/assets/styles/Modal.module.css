@@ -68,6 +68,11 @@ h1 {
   margin-bottom: 25px;
 }
 
+.button {
+  width: 166px;
+  height: 40px;
+}
+
 
 @media (max-width:768px) {
   .modal {

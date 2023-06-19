@@ -41,9 +41,11 @@ const Content = () => {
           )
         }).splice(0, availableCards)}
       </div>
-      <CustomButton
-        title='More'
-        onClick={() => { setAvailableCards(availableCards + 3) }} />
+      <div className={styles.moreButton}>
+        <CustomButton
+          title='More'
+          onClick={() => { setAvailableCards(availableCards + 3) }} />
+      </div>
     </div>
   )
 }

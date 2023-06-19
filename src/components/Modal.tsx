@@ -54,12 +54,12 @@ const Modal = (props: IModalProps) => {
         <CustomCheckbox
           onChange={() => setChecked(!checked)}
           checked={checked} />
-        <CustomButton
-          onClick={() => { checkUser(login, password) }}
-          title="Sign In"
-          width="166px"
-          height="40px"
-        />
+        <div className={styles.button}>
+          <CustomButton
+            onClick={() => { checkUser(login, password) }}
+            title="Sign In"
+          />
+        </div>
       </form>
     </div>
   )

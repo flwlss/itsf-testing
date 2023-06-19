@@ -30,7 +30,9 @@ const ContentItem = (props: IContentItemProps) => {
           </div>
           <p className={styles.itemInfoText}>{props.body}</p>
         </div>
-        <CustomButton onClick={() => { }} title="Visit comment" />
+        <div className={styles.visitButton}>
+          <CustomButton onClick={() => { }} title="Visit comment" />
+        </div>
       </div>
     </article>
   )
