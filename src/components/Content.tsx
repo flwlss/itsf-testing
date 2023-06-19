@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../assets/styles/Content.module.css'
 import CustomButton from './CustomButton'
 import ContentItem from './ContentItem'
+import Loader from './Loader';
 
 interface Card {
   body: string;
@@ -15,6 +16,7 @@ const Content = () => {
 
   const [state, setState] = useState([])
   const [availableCards, setAvailableCards] = useState(3)
+  const [loader, setLoader] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -29,8 +31,16 @@ const Content = () => {
     })()
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoader(false)
+    }, 200);
+    return () => clearTimeout(timer)
+  }, [loader])
+
   return (
     <div className={styles.container}>
+      {loader && <Loader />}
       <div className={styles.itemsWrapper}>
         {state.map((item: Card) => {
           return (
@@ -44,7 +54,10 @@ const Content = () => {
       <div className={styles.moreButton}>
         <CustomButton
           title='More'
-          onClick={() => { setAvailableCards(availableCards + 3) }} />
+          onClick={() => {
+            setAvailableCards(availableCards + 3)
+            setLoader(true)
+          }} />
       </div>
     </div>
   )
