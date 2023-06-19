@@ -22,7 +22,7 @@ const ContentItem = (props: IContentItemProps) => {
       <div className={showCard ? styles.itemInfo : `${styles.itemInfo} ${styles.itemInfoActive}`}>
         <div className={styles.itemInfoWrapper}>
           <div className={styles.itemInfoEmailRating}>
-            <p>{props.email}</p>
+            <p className={styles.itemInfoEmail}>{props.email}</p>
             <div className={styles.itemInfoRating}>
               <p>{ratingValue}</p>
               <img src="/img/star.svg" alt="" />

@@ -59,6 +59,7 @@
 .itemInfoWrapper {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .itemInfoEmailRating {
@@ -70,6 +71,11 @@
 .itemInfoRating {
   display: flex;
   align-items: center;
+}
+
+.itemInfoEmail {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .itemInfoText {
@@ -89,6 +95,7 @@
 }
 
 .visitButton {
+  margin-top: 20px;
   width: 218px;
   height: 47px;
 }
