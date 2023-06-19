@@ -12,6 +12,7 @@ const Modal = (props: IModalProps) => {
 
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const [checked, setChecked] = useState(false)
 
   return (
     <div
@@ -39,9 +40,11 @@ const Modal = (props: IModalProps) => {
           type="password"
           value={password}
         />
-        <CustomCheckbox />
+        <CustomCheckbox
+          onClick={() => setChecked(!checked)}
+          checked={checked} />
         <CustomButton
-          onClick={() => { alert(login) }}
+          onClick={() => { alert(JSON.stringify({ login, password, checked })) }}
           title="Sign In"
           width="166px"
           height="40px"

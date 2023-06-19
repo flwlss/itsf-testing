@@ -10,8 +10,9 @@ interface ICustomInput {
 
 const CustomInput = (props: ICustomInput) => {
   return (
-    <label htmlFor="">
+    <label htmlFor={props.label}>
       <input
+        id={props.label}
         className={styles.input}
         value={props.value}
         onChange={props.onChange}
