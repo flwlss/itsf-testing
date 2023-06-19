@@ -5,7 +5,7 @@ import Modal from "./Modal";
 
 const Header = () => {
 
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <header className={styles.header}>

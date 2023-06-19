@@ -14,6 +14,22 @@ const Modal = (props: IModalProps) => {
   const [password, setPassword] = useState('')
   const [checked, setChecked] = useState(false)
 
+  const users = [
+    { login: "user1", password: "password1" },
+    { login: "user2", password: "password2" },
+    { login: "user3", password: "password3" },
+  ];
+
+  const checkUser = (login: string, password: string) => {
+    const user = users.find(user => user.login === login && user.password === password)
+    if (user) {
+      alert('Успешная авторизация!')
+      props.closeModal()
+    } else {
+      alert('Неправильный логин пользователя или пароль!')
+    }
+  }
+
   return (
     <div
       onClick={props.closeModal}
@@ -44,7 +60,7 @@ const Modal = (props: IModalProps) => {
           onClick={() => setChecked(!checked)}
           checked={checked} />
         <CustomButton
-          onClick={() => { alert(JSON.stringify({ login, password, checked })) }}
+          onClick={() => { checkUser(login, password) }}
           title="Sign In"
           width="166px"
           height="40px"
