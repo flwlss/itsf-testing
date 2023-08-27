@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from '../assets/styles/Content.module.css'
+import styles from "../assets/styles/Content.module.css";
 import CustomButton from "./CustomButton";
 
 interface IContentItemProps {
@@ -9,18 +9,30 @@ interface IContentItemProps {
 }
 
 const ContentItem = (props: IContentItemProps) => {
-
-  const randomRating = Math.floor(Math.random() * (Math.max(6) - Math.min(1)) + Math.min(1))
-  const [showCard, setShowCard] = useState(false)
-  const [ratingValue, setRatingValue] = useState(randomRating)
+  const randomRating = Math.floor(
+    Math.random() * (Math.max(6) - Math.min(1)) + Math.min(1)
+  );
+  const [showCard, setShowCard] = useState(false);
+  const [ratingValue, setRatingValue] = useState(randomRating);
 
   return (
     <article
-      onMouseEnter={() => { setShowCard(true) }}
-      onMouseLeave={() => { setShowCard(false) }}
-      className={styles.item}>
+      onMouseEnter={() => {
+        setShowCard(true);
+      }}
+      onMouseLeave={() => {
+        setShowCard(false);
+      }}
+      className={styles.item}
+    >
       <img className={styles.itemImg} src={props.imgSrc} alt="" />
-      <div className={showCard ? styles.itemInfo : `${styles.itemInfo} ${styles.itemInfoActive}`}>
+      <div
+        className={
+          showCard
+            ? styles.itemInfo
+            : `${styles.itemInfo} ${styles.itemInfoActive}`
+        }
+      >
         <div className={styles.itemInfoWrapper}>
           <div className={styles.itemInfoEmailRating}>
             <p className={styles.itemInfoEmail}>{props.email}</p>
@@ -32,11 +44,11 @@ const ContentItem = (props: IContentItemProps) => {
           <p className={styles.itemInfoText}>{props.body}</p>
         </div>
         <div className={styles.visitButton}>
-          <CustomButton onClick={() => { }} title="Visit comment" />
+          <CustomButton onClick={() => {}} title="Visit comment" />
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default ContentItem
+export default ContentItem;

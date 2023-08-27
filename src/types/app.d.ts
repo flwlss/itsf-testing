@@ -3,7 +3,7 @@ interface Comments {
   email: string;
   id: number;
   name: string;
-  postId: string
+  postId: string;
 }
 
 interface Photos {
@@ -11,5 +11,5 @@ interface Photos {
   id: number;
   title: string;
   url: string;
-  thumbnailUrl: string
+  thumbnailUrl: string;
 }

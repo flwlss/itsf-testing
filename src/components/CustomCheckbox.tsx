@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from '../assets/styles/CustomCheckbox.module.css';
+import React from "react";
+import styles from "../assets/styles/CustomCheckbox.module.css";
 
 interface ICustomCheckbox {
   onChange: () => void;
@@ -13,12 +13,13 @@ const CustomCheckbox = (props: ICustomCheckbox) => {
         <input
           checked={props.checked}
           onChange={props.onChange}
-          type="checkbox" />
+          type="checkbox"
+        />
         <span className={styles.checkmark} />
       </label>
       <p>Remember me on next login</p>
     </div>
-  )
-}
+  );
+};
 
-export default CustomCheckbox
+export default CustomCheckbox;

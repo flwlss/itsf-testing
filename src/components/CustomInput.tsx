@@ -1,11 +1,11 @@
 import React from "react";
-import styles from '../assets/styles/CustomInput.module.css';
+import styles from "../assets/styles/CustomInput.module.css";
 
 interface ICustomInput {
   label: string;
   value: string;
   onChange: (e: any) => void;
-  type: 'text' | 'password';
+  type: "text" | "password";
 }
 
 const CustomInput = (props: ICustomInput) => {
@@ -17,10 +17,11 @@ const CustomInput = (props: ICustomInput) => {
         value={props.value}
         onChange={props.onChange}
         type={props.type}
-        required />
+        required
+      />
       <span>{props.label}</span>
     </label>
-  )
-}
+  );
+};
 
-export default CustomInput
+export default CustomInput;

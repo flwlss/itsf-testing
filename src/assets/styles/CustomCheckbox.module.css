@@ -11,7 +11,7 @@
   position: relative;
   width: 20px;
   height: 20px;
-  border: 2px solid #7469F3;
+  border: 2px solid #7469f3;
   margin-right: 5px;
   border-radius: none;
   cursor: pointer;
@@ -37,11 +37,11 @@
   cursor: pointer;
 }
 
-.checkbox input:checked~.checkmark {
-  background-color: #7469F3;
+.checkbox input:checked ~ .checkmark {
+  background-color: #7469f3;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .checkboxWrapper {
     margin-top: 15px;
     margin-bottom: 25px;
